@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>❤️ Aşkımızın Müzesi ❤️</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="img-backdrop" aria-hidden="true" id="img-backdrop">
+    <div class="img-grid">
+      <div class="img-grid-row">
+        <img src="images/image (1).jpeg" alt="">
+        <img src="images/image (2).jpeg" alt="">
+        <img src="images/image (3).jpeg" alt="">
+        <img src="images/image (4).jpeg" alt="">
+        <img src="images/image (5).jpeg" alt="">
+        <img src="images/image (6).jpeg" alt="">
+        <img src="images/image (7).jpeg" alt="">
+        <img src="images/image (8).jpeg" alt="">
+        <img src="images/image (9).jpeg" alt="">
+        <img src="images/image (10).jpeg" alt="">
+      </div>
+      <div class="img-grid-row">
+        <img src="images/image (11).jpeg" alt="">
+        <img src="images/image (12).jpeg" alt="">
+        <img src="images/image (13).jpeg" alt="">
+        <img src="images/image (14).jpeg" alt="">
+        <img src="images/image (15).jpeg" alt="">
+        <img src="images/image (16).jpeg" alt="">
+        <img src="images/image (17).jpeg" alt="">
+        <img src="images/image (18).jpeg" alt="">
+        <img src="images/image (19).jpeg" alt="">
+        <img src="images/image (20).jpeg" alt="">
+      </div>
+      <div class="img-grid-row">
+        <img src="images/image (21).jpeg" alt="">
+        <img src="images/image (22).jpeg" alt="">
+        <img src="images/image (23).jpeg" alt="">
+        <img src="images/image (24).jpeg" alt="">
+        <img src="images/image (25).jpeg" alt="">
+        <img src="images/image (26).jpeg" alt="">
+        <img src="images/image (27).jpeg" alt="">
+        <img src="images/image (28).jpeg" alt="">
+        <img src="images/image (29).jpeg" alt="">
+        <img src="images/image (30).jpeg" alt="">
+      </div>
+    </div>
+  </div>
+  <!-- Join Modal -->
+
+  <div id="joinModal" class="modal">
+    <img src="assets/heart.png" alt="Heart" id="heart">
+    <div class="modal-content">
+      <h2>Aşkımızın Müzesi</h2>
+      <div class="form-group hidden">
+        <label for="playerName">Aşkımın ismi:</label>
+        <input type="text" id="playerName" placeholder="Enter your name" value="Player" maxlength="20">
+      </div>
+      <div class="form-group">
+        <label for="playerCharacter">Kimsinizdir:</label>
+        <select id="playerCharacter">
+          <option value="1">Bade</option>
+          <option value="2">Semih</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="serverUrl">Server:</label>
+        <input type="text" id="serverUrl" placeholder="ws://localhost:3001" value="ws://localhost:3001">
+      </div>
+      <button id="joinButton" class="join-button">Yolculuğumuza Başla!</button>
+    </div>
+
+    <div class="bottom-text">
+      <p>Seni çok ama çok ama çok ama çok seviyorum aşkım.</p>
+    </div>
+  </div>
+
+  <div id="gameContainer" class="hidden">
+    <canvas id="gameCanvas"></canvas>
+    <!-- Image Viewer Overlay -->
+    <div id="imageViewer" class="image-viewer hidden">
+      <div class="image-viewer-content">
+        <img id="viewerImage" src="" alt="Object image">
+        <p id="viewerDescription" class="image-description"></p>
+        <p class="image-viewer-hint">"E" ile kapanır.</p>
+      </div>
+    </div>
+    <!-- Interaction Hint -->
+    <div id="interactionHint" class="interaction-hint hidden">"E"ye bas bitanem.</div>
+    <!-- Seated Hint -->
+    <div id="seatedHint" class="seated-hint hidden">Kitabımızı açmak için "Q" pattisim.</div>
+    <!-- Flipbook -->
+    <div id="flipbook" class="flipbook hidden">
+      <div class="flipbook-wrapper">
+        <input type="checkbox" id="cover_checkbox">
+        <input type="checkbox" id="page1_checkbox">
+        <input type="checkbox" id="page2_checkbox">
+        <input type="checkbox" id="page3_checkbox">
+        <input type="checkbox" id="page4_checkbox">
+        <input type="checkbox" id="page5_checkbox">
+        <input type="checkbox" id="page6_checkbox">
+        <input type="checkbox" id="page7_checkbox">
+        <input type="checkbox" id="page8_checkbox">
+        <input type="checkbox" id="page9_checkbox">
+        <input type="checkbox" id="page10_checkbox">
+        <input type="checkbox" id="page11_checkbox">
+        <input type="checkbox" id="page12_checkbox">
+        <input type="checkbox" id="page13_checkbox">
+
+        <!-- Flip Book -->
+        <div id="flip_book">
+            <div class="front_cover">
+                <h1 class="cover_title">Aşkımızın Müzesi</h1>
+                <h2 class="cover_subtitle">written by Bade & Semih</h2>
+                <label for="cover_checkbox" id="cover"></label>
+            </div>
+
+            <div class="page" id="page1">
+                <div class="front_page">
+                    <label for="page1_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (39).jpeg" alt="Front content">
+                    <p class="page_text">Bu sene seni uyurken izleyecek çok zamanım oldu ve kolunu öyle koyarak uyuman Dünyanın en tatlı şeyi.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page1_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (40).jpeg" alt="Back content">
+                    <p class="page_text">O dudaklarını sürekli öpmek istiyorum.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page2">
+                <div class="front_page">
+                    <label for="page2_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (41).jpeg" alt="Front content">
+                    <p class="page_text">Başka ilişkileri de başlattık.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page2_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (14).jpeg" alt="Back content">
+                    <p class="page_text">Seni yakından çektiğim fotolara her açıp baktığımda ne kadar şanslı olduğumu anlıyorum.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page3">
+                <div class="front_page">
+                    <label for="page3_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (43).jpeg" alt="Front content">
+                    <p class="page_text">Diyecek söz bulamıyorum çünkü o kadar güzelsin ki.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page3_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (44).jpeg" alt="Back content">
+                    <p class="page_text">Güzelliğine sözler kifayetsiz.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page4">
+                <div class="front_page">
+                    <label for="page4_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (45).jpeg" alt="Front content">
+                    <p class="page_text">Spor sonrası seninle Pinkel'de oturmanın bana verdiği keyifi ve dinlendiriciliği bilemezsin.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page4_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (46).jpeg" alt="Back content">
+                    <p class="page_text">Küçük bir patates kızartması gibi bana bakıyorsun.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page5">
+                <div class="front_page">
+                    <label for="page5_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (47).jpeg" alt="Front content">
+                    <p class="page_text">Beraber bizim yapamayacağımız hiçbir şey yok aşkım.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page5_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (48).jpeg" alt="Back content">
+                    <p class="page_text">BEBEĞİM BENİMMMMMM</p>
+                </div>
+            </div>
+
+            <div class="page" id="page6">
+                <div class="front_page">
+                    <label for="page6_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (49).jpeg" alt="Front content">
+                    <p class="page_text">3 yıl önce senin kokunu alarak gezdiğim Londra'yı şimdi seninle gezdim.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page6_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (50).jpeg" alt="Back content">
+                    <p class="page_text">Çok güzeliz.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page7">
+                <div class="front_page">
+                    <label for="page7_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (51).jpeg" alt="Front content">
+                    <p class="page_text">Biraz da şamatayız.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page7_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (52).jpeg" alt="Back content">
+                    <p class="page_text">Koskoca müzedeki tek müzelik güzellik sensin.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page8">
+                <div class="front_page">
+                    <label for="page8_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (53).jpeg" alt="Front content">
+                    <p class="page_text">Londra'daki en güzel kız.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page8_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (54).jpeg" alt="Back content">
+                    <p class="page_text">Beraber müze gezmek, Londra'yı gezmek her şeyden daha çok mutlu etmişti beni.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page9">
+                <div class="front_page">
+                    <label for="page9_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (55).jpeg" alt="Front content">
+                    <p class="page_text">London Eye'ın manzarasından daha güzel bir güzelliğin var.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page9_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (56).jpeg" alt="Back content">
+                    <p class="page_text">Çok güzel bir fotomuz. İyi ki benimsin.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page10">
+                <div class="front_page">
+                    <label for="page10_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (57).jpeg" alt="Front content">
+                    <p class="page_text">Makyajsız halin daha güzel olmasına rağmen seni hazırlanırken izlemek çok güzel.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page10_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (58).jpeg" alt="Back content">
+                    <p class="page_text">Ben de şimdi kötü foto çekmiyorum.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page11">
+                <div class="front_page">
+                    <label for="page11_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (59).jpeg" alt="Front content">
+                    <p class="page_text">Beraber Alaçatı'ya gittik ve hayatımdaki en güzel ve rahatlatıcı tatildi.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page11_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (60).jpeg" alt="Back content">
+                    <p class="page_text">Bebeğim benim.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page12">
+                <div class="front_page">
+                    <label for="page12_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (61).jpeg" alt="Front content">
+                    <p class="page_text">ve ben.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page12_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <img class="back_content" src="images/image (62).jpeg" alt="Back content">
+                    <p class="page_text">Şu duruluğa ve güzelliğe bakar mısın. MANYIYORUM.</p>
+                </div>
+            </div>
+
+            <div class="page" id="page13">
+                <div class="front_page">
+                    <label for="page13_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/front_page_edge_shading.webp" alt="Front page edge shading">
+                    <img class="front_content" src="images/image (63).jpeg" alt="Front content">
+                    <p class="page_text">Sen benim dünyamsın.</p>
+                </div>
+
+                <div class="back_page">
+                    <label for="page13_checkbox"></label>
+                    <img class="edge_shading" src="./assets/images/back_page_edge_shading.webp" alt="Back page edge shading">
+                    <div class="back_content blank_page"></div>
+                    <p class="back_text">
+                      Hayatım,
+                      <br>
+                      <br>
+                      Seninle sevgili olarak geçirdiğim bu 2 yıl benim hayatımın en özel, en güzel zamanlarıydı. 
+                      Ve, daha da sevgili ve aşık olarak geçireceğimiz yılların başındayız çünkü bizim sevgimiz sonsuza kadar devam edecek.
+                      Bundan dolayı çok şanslıyım ve aşırı mutluyum. Geçen seneki anı websitesini bir üst seviyeye çıkarıp bir oyun yapmak istedim, hayatımda hiç websitesinde oyun yapmamıştım ve çok zorlandım
+                      ama senin için her şey değer, umarım hediyemi beğenmişsindir. Seninle hayatımın geri kalanını geçirmek için sabırsızlanıyorum. Benim küçük patatesim, sana bayılıyorum ve sana çok aşığım. 
+                      İyi ki benim birtanecik sevgilimsin ve öyle de kalmaya devam edeceksin. Seni çok seviyorum.
+                      Hayatım, dünyam, her şeyim sen benimsin.
+                      <br>
+                      <br>
+                      - Semih (Manit)
+                    </p>
+                </div>
+            </div>
+
+            <div class="back_cover">
+            </div>
+        </div>
+      </div>
+      
+      <div class="flipbook-close-hint">"Q" ile kapat en güzelim.</div>
+    </div>
+    <!--
+    <div id="ui">
+      <div id="info">
+        <div>Players: <span id="playerCount">0</span>/2</div>
+        <div>FPS: <span id="fps">0</span></div>
+      </div>
+      <div id="controls">
+        <p>Use WASD or Arrow Keys to move</p>
+      </div>
+    </div>
+  </div>
+  -->
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,8 @@
+{
+  "port": 8080,
+  "healthPort": 3000,
+  "tickRate": 20,
+  "playerSpeed": 100,
+  "maxPlayers": 2
+}
+

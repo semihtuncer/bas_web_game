@@ -1,0 +1,18 @@
+{
+  "name": "bas-web-game",
+  "version": "1.0.0",
+  "description": "Minimalist top-down pixel art multiplayer game",
+  "type": "module",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "keywords": ["game", "multiplayer", "websocket"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.14.2"
+  }
+}
+

@@ -1,0 +1,42 @@
+---
+alwaysApply: true
+---
+
+## Project Intent
+Build a minimalist, production-deployable **top-down pixel art** multiplayer game:
+- **Client:** pure **HTML/CSS/vanilla JS** (no frameworks, no bundlers).
+- **Server:** Node.js with **WebSocket** (no HTTP frameworks; use `ws` only).
+- **Players:** maximum **2 concurrent** players per room (single room).
+- **Persistence:** player state (name, cosmetics, last position, stats) saved and restored across sessions.
+- **Always-on:** server designed to run perpetually on a small VM/host (e.g., Render/Fly/railway); provide Procfile and healthcheck.
+
+## Hard Constraints
+- ✅ No React, no bundlers, no transpilers, no game engines.
+- ✅ Art is pixel-sharp at integer scales (no smoothing).
+- ✅ All assets locally served (no CDNs).
+- ✅ Single room, hard cap of 2 players; late joiners wait until a slot frees.
+- ✅ Server authoritative on position, collisions, and game time.
+- ✅ All network I/O via WebSocket; no polling.
+- ✅ Deterministic tick rate (e.g., **20 TPS**) on server; client renders at `requestAnimationFrame`.
+- ✅ Persist **on each significant change** and on **disconnect**.
+
+## Repository Structure (generate exactly)
+/public
+index.html
+styles.css
+main.js
+net.js
+render.js
+input.js
+world.js
+assets/
+tiles.png
+player.png
+/server
+server.js
+schema.js
+store.js
+health.js
+config.example.json
+Procfile
+README.md
