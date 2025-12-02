@@ -26,6 +26,9 @@ import {
 } from './worldMap.js';
 
 const PORT = process.env.PORT || 3001;
+const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
+  : null; // null means allow all origins
 const SPAWN_POINTS = [
   { col: 20, row: 10 },
   { col: 21, row: 10 },
@@ -1082,7 +1085,28 @@ async function startServer() {
   initializeFollowers();
   assignFollowersToPlayers();
   
-  wss = new WebSocketServer({ port: PORT });
+  // Configure CORS for WebSocket connections
+  const verifyClient = (info) => {
+    const origin = info.origin;
+    
+    // If no allowed origins specified, allow all (for cross-network access)
+    if (!ALLOWED_ORIGINS) {
+      return true;
+    }
+    
+    // Check if origin is in allowed list
+    if (ALLOWED_ORIGINS.includes(origin) || ALLOWED_ORIGINS.includes('*')) {
+      return true;
+    }
+    
+    console.warn(`Rejected connection from origin: ${origin}`);
+    return false;
+  };
+  
+  wss = new WebSocketServer({ 
+    port: PORT,
+    verifyClient: verifyClient
+  });
   
   wss.on('error', (error) => {
     if (error.code === 'EACCES') {
@@ -1119,6 +1143,7 @@ async function startServer() {
   
   console.log(`WebSocket server running on port ${PORT}`);
   console.log(`Game tick rate: ${GAME_CONFIG.TICK_RATE} TPS`);
+  console.log(`CORS: ${ALLOWED_ORIGINS ? `Allowed origins: ${ALLOWED_ORIGINS.join(', ')}` : 'All origins allowed (cross-network enabled)'}`);
   console.log(`Connect clients to: ws://localhost:${PORT}`);
 }
 
